@@ -1,0 +1,182 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.login-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0f1729; /* azul fosco, opaco */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.login-bg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 140vw;
+  height: 140vh;
+  background: radial-gradient(
+    120vw 120vh at 0% 100%,
+    rgba(120,180,255,0.32) 0%,
+    rgba(120,180,255,0.14) 50%,
+    rgba(120,180,255,0.00) 85%
+  );
+  pointer-events: none;
+  z-index: 1;
+  /* Removido o clip-path para não cortar a luz */
+}
+
+.login-container {
+  background: rgba(20, 30, 50, 0.98);
+  backdrop-filter: blur(2px) grayscale(0.15);
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 #0006;
+  min-width: unset;
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mundivox-title {
+  color: #e0e0e0;
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin-bottom: 2.5rem;
+  margin-top: 3rem;
+  text-align: center;
+  background: linear-gradient(
+    120deg,
+    #f9f9f9 0%,
+    #e6e6e6 10%,
+    #bcbcbc 18%,
+    #f5f5f5 28%,
+    #b0b0b0 38%,
+    #e6e6e6 48%,
+    #bcbcbc 58%,
+    #f5f5f5 68%,
+    #d0d0d0 78%,
+    #b0b0b0 85%,
+    #f9f9f9 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: contrast(1.2) brightness(1.15) drop-shadow(0 1px 6px #bcbcbc44);
+  /* Detalhes de textura metálica */
+  position: relative;
+}
+.mundivox-title::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(135deg, rgba(255,255,255,0.13) 0 2px, transparent 2px 6px);
+  -webkit-background-clip: text;
+  background-clip: text;
+  mix-blend-mode: lighten;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.login-label {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  text-align: left;
+}
+
+.login-input {
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #162447;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 1px 4px #0002;
+  transition: box-shadow 0.2s;
+}
+
+.login-input:focus {
+  box-shadow: 0 2px 8px #0004;
+}
+
+.login-btn {
+  background: linear-gradient(90deg, #3a7bd5 0%, #0a1833 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0003;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.login-btn:hover {
+  background: linear-gradient(90deg, #0a1833 0%, #3a7bd5 100%);
+  box-shadow: 0 4px 16px #0005;
+}
