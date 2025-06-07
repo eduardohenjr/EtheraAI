@@ -68,7 +68,7 @@ function App() {
               <directionalLight position={[5, 3, 5]} intensity={1.2} />
               <Stars radius={10} depth={40} count={3000} factor={0.7} fade speed={1} />
               <group position={[0, 0, 0]}>
-                <Earth />
+                {/* <Earth /> */}
               </group>
               <Preload all />
               <OrbitControls
@@ -112,6 +112,9 @@ function App() {
             <form className="login-form" style={{maxWidth: 320, width: '100%', minWidth: 220, margin: '0 auto', textAlign: 'center'}}>
               <input id="login-input" className="login-input" type="text" placeholder="Usuário" />
               <input className="login-input" type="password" placeholder="Senha" />
+              <div style={{display: 'flex', justifyContent: 'center', marginBottom: 12}}>
+                <a href="#" style={{color: '#bfc2c7', fontSize: '0.95em', textDecoration: 'underline', cursor: 'pointer', textAlign: 'center'}}>Esqueceu a senha?</a>
+              </div>
               <button className="login-btn" type="submit">Entrar</button>
             </form>
           </div>
@@ -119,7 +122,7 @@ function App() {
       </div>
       {/* Rodapé */}
       <footer className="footer">
-        &copy; {new Date().getFullYear()} Desenvolvido por Eduardo Henrique
+      {new Date().getFullYear()} &copy; Desenvolvido por Eduardo Henrique
       </footer>
     </div>
   )
