@@ -1,7 +1,7 @@
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stars, useTexture, Preload } from '@react-three/drei'
-import React, { Suspense } from 'react'
+import React, { Suspense, useRef } from 'react'
 
 // ErrorBoundary para capturar erros do Canvas
 class ErrorBoundary extends React.Component {
@@ -55,6 +55,7 @@ function Earth() {
 }
 
 function App() {
+  const controlsRef = useRef()
   return (
     <div className="login-bg" style={{position: 'fixed', inset: 0, minHeight: '100vh', minWidth: '100vw', width: '100vw', height: '100vh', overflow: 'hidden'}}>
       {/* Canvas único para estrelas e planeta */}
@@ -62,7 +63,7 @@ function App() {
         <ErrorBoundary>
           <Suspense fallback={<div style={{color:'#fff',textAlign:'center'}}>Carregando planeta...</div>}>
             <Canvas camera={{ position: [0, 0, 3.5] }} style={{ width: '100vw', height: '100vh', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }} gl={{ preserveDrawingBuffer: true, alpha: true }}>
-              <color attach="background" args={['#0a1833']} />
+              <color attach="background" args={['#070f1c']} />
               <ambientLight intensity={0.7} />
               <directionalLight position={[5, 3, 5]} intensity={1.2} />
               <Stars radius={10} depth={40} count={3000} factor={0.7} fade speed={1} />
@@ -70,7 +71,22 @@ function App() {
                 <Earth />
               </group>
               <Preload all />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.7} enablePan={false} minPolarAngle={Math.PI/2.2} maxPolarAngle={Math.PI/2.2} />
+              <OrbitControls
+                ref={controlsRef}
+                enableZoom={false}
+                autoRotate
+                autoRotateSpeed={0.7}
+                enablePan={false}
+                minPolarAngle={Math.PI/2.2}
+                maxPolarAngle={Math.PI/2.2}
+                onEnd={() => {
+                  if (controlsRef.current) {
+                    setTimeout(() => {
+                      controlsRef.current.autoRotate = true
+                    }, 1500)
+                  }
+                }}
+              />
             </Canvas>
           </Suspense>
         </ErrorBoundary>
@@ -102,19 +118,7 @@ function App() {
         </div>
       </div>
       {/* Rodapé */}
-      <footer style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        width: '100vw',
-        background: 'rgba(10,24,51,0.85)',
-        color: '#fff',
-        textAlign: 'center',
-        fontSize: 14,
-        padding: '10px 0',
-        zIndex: 10,
-        letterSpacing: 1
-      }}>
+      <footer className="footer">
         &copy; {new Date().getFullYear()} Desenvolvido por Eduardo Henrique
       </footer>
     </div>

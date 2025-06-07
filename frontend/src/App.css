@@ -47,7 +47,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #0f1729; /* azul fosco, opaco */
+  background: #070f1c; /* azul ainda mais escuro */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,4 +179,55 @@
 .login-btn:hover {
   background: linear-gradient(90deg, #0a1833 0%, #3a7bd5 100%);
   box-shadow: 0 4px 16px #0005;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(10,24,51,0.85);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 0;
+  z-index: 10;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .login-bg {
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  .login-container {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    border-radius: 10px;
+    max-width: 98vw;
+    width: 98vw;
+    box-shadow: 0 1px 8px 0 #0005;
+  }
+  .mundivox-title {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .login-form {
+    min-width: unset;
+    max-width: 100vw;
+    width: 100%;
+  }
+  .login-input {
+    font-size: 0.98rem;
+    padding: 0.6rem 0.7rem;
+  }
+  .login-btn {
+    font-size: 1rem;
+    padding: 0.7rem 0;
+  }
+  footer {
+    font-size: 12px;
+    padding: 7px 0;
+  }
 }
