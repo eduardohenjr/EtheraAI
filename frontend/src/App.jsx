@@ -68,7 +68,7 @@ function App() {
               <directionalLight position={[5, 3, 5]} intensity={1.2} />
               <Stars radius={10} depth={40} count={3000} factor={0.7} fade speed={1} />
               <group position={[0, 0, 0]}>
-                {/* <Earth /> */}
+                { <Earth /> }
               </group>
               <Preload all />
               <OrbitControls
