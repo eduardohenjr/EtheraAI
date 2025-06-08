@@ -27,11 +27,9 @@ function Earth() {
   // Usa Suspense para garantir carregamento das texturas
   const colorMap = useTexture('/earthmap.jpg')
   const cloudMap = useTexture('/earthclouds.png')
-  const specularMap = useTexture('/earthspec.jpg')
-  if (!colorMap || !cloudMap || !specularMap) return null
+  if (!colorMap || !cloudMap) return null
   return (
     <group>
-      { Planeta }
       <mesh rotation={[0, 0, 0]}>
         <sphereGeometry args={[2, 64, 64]} />
         <meshStandardMaterial 
@@ -39,10 +37,8 @@ function Earth() {
           metalness={0.4} 
           roughness={0.7} 
           envMapIntensity={0.8}
-          specularMap={specularMap}
         />
       </mesh>
-      { Nuvens }
       <mesh>
         <sphereGeometry args={[2.03, 64, 64]} />
         <meshStandardMaterial 
